@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Shital Warang, Java Full Stack Developer." />
+  <title>Shital Warang | Java Full Stack Developer</title>
+  <style>
+    :root {
+      --bg: #0b1020; --panel: #121a2e; --panel2: #17223a;
+      --text: #eef3ff; --muted: #aab6d3; --accent: #7c9cff;
+      --accent2: #61e6c5; --line: rgba(255,255,255,.12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: Inter, "Segoe UI", Arial, sans-serif;
+      background: radial-gradient(circle at 85% 0%, #1b2b55 0, transparent 32%), var(--bg);
+      color: var(--text); line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1080px, 92%); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 10; backdrop-filter: blur(14px);
+      background: rgba(11,16,32,.82); border-bottom: 1px solid var(--line);
+    }
+    nav { display: flex; align-items: center; justify-content: space-between; min-height: 72px; gap: 20px; }
+    .brand { font-weight: 800; letter-spacing: .3px; }
+    .brand span { color: var(--accent2); }
+    .navlinks { display: flex; flex-wrap: wrap; gap: 22px; color: var(--muted); font-size: .94rem; }
+    .navlinks a:hover { color: var(--text); }
+    .hero { padding: 94px 0 76px; display: grid; grid-template-columns: 1.5fr .8fr; gap: 42px; align-items: center; }
+    .eyebrow { color: var(--accent2); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; font-size: .78rem; }
+    h1 { font-size: clamp(2.6rem, 6vw, 4.8rem); line-height: 1.06; margin: 14px 0 20px; letter-spacing: -2px; }
+    h1 span { color: var(--accent); }
+    .intro { color: var(--muted); font-size: 1.08rem; max-width: 650px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 11px 17px; border-radius: 12px; font-weight: 700; border: 1px solid var(--line); }
+    .primary { color: #091226; background: linear-gradient(135deg, var(--accent2), #8cddff); border: 0; }
+    .secondary { background: rgba(255,255,255,.04); }
+    .profile-card { padding: 28px; border: 1px solid var(--line); border-radius: 24px; background: linear-gradient(145deg, rgba(124,156,255,.13), rgba(97,230,197,.05)); box-shadow: 0 22px 70px rgba(0,0,0,.22); }
+    .avatar { width: 96px; height: 96px; border-radius: 26px; display: grid; place-items: center; background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #0b1020; font-size: 2rem; font-weight: 900; margin-bottom: 20px; }
+    .profile-card h2 { margin: 0 0 4px; font-size: 1.35rem; }
+    .profile-card p { color: var(--muted); margin: 0; }
+    .quickfacts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+    .fact { padding: 12px; background: rgba(255,255,255,.045); border-radius: 12px; }
+    .fact strong { display: block; font-size: 1.05rem; }
+    .fact small { color: var(--muted); }
+    section { padding: 60px 0; }
+    .section-head { margin-bottom: 26px; }
+    .section-head .eyebrow { margin-bottom: 6px; }
+    h2.section-title { font-size: clamp(1.8rem, 4vw, 2.5rem); margin: 0; letter-spacing: -.7px; }
+    .section-desc { color: var(--muted); max-width: 700px; margin: 8px 0 0; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+    .card { border: 1px solid var(--line); border-radius: 18px; padding: 23px; background: rgba(18,26,46,.82); }
+    .card h3 { margin: 0 0 8px; font-size: 1.18rem; }
+    .card p { color: var(--muted); margin: 0; }
+    .project-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; }
+    .project-number { color: var(--accent2); font-size: .82rem; font-weight: 800; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 17px; }
+    .tag { font-size: .8rem; color: #dbe4ff; background: rgba(124,156,255,.13); border: 1px solid rgba(124,156,255,.2); padding: 5px 9px; border-radius: 999px; }
+    ul { padding-left: 20px; margin: 12px 0 0; color: var(--muted); }
+    li { margin: 6px 0; }
+    .skillgroup { margin-bottom: 18px; }
+    .skillgroup h3 { font-size: .95rem; color: var(--accent2); margin: 0 0 10px; }
+    .skillchips { display: flex; flex-wrap: wrap; gap: 9px; }
+    .skillchips span { padding: 8px 12px; border: 1px solid var(--line); background: rgba(255,255,255,.035); border-radius: 10px; color: #e4eaff; font-size: .9rem; }
+    .timeline { display: grid; gap: 14px; }
+    .edu { display: flex; gap: 16px; align-items: flex-start; }
+    .dot { flex: 0 0 12px; height: 12px; margin-top: 8px; border-radius: 50%; background: var(--accent2); box-shadow: 0 0 0 5px rgba(97,230,197,.1); }
+    .edu h3 { margin: 0; font-size: 1.05rem; }
+    .edu p { margin: 3px 0 0; color: var(--muted); }
+    .contact-panel { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 30px; border-radius: 22px; border: 1px solid var(--line); background: linear-gradient(120deg, rgba(124,156,255,.14), rgba(97,230,197,.08)); }
+    .contact-panel p { color: var(--muted); margin: 6px 0 0; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    footer { border-top: 1px solid var(--line); color: var(--muted); padding: 24px 0; font-size: .9rem; }
+    @media (max-width: 760px) {
+      nav { align-items: flex-start; padding: 16px 0; flex-direction: column; }
+      .navlinks { gap: 14px; }
+      .hero { grid-template-columns: 1fr; padding-top: 60px; }
+      .grid { grid-template-columns: 1fr; }
+      .contact-panel { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav aria-label="Main navigation">
+        <a class="brand" href="#home">SHITAL<span>.</span></a>
+        <div class="navlinks">
+          <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="hero" id="home">
+        <div>
+          <div class="eyebrow">Java Full Stack Developer</div>
+          <h1>Hi, I'm <span>Shital Warang.</span></h1>
+          <p class="intro">A B.Sc. Information Technology graduate interested in building responsive, dynamic web applications with Java, Spring Boot, React.js, and MySQL. I enjoy solving problems, learning new technologies, and contributing to real-world software projects.</p>
+          <div class="actions">
+            <a class="btn primary" href="#projects">Explore My Projects ↘</a>
+            <a class="btn secondary" href="mailto:warangshital48@gmail.com">Contact Me</a>
+          </div>
+        </div>
+        <aside class="profile-card">
+          <div class="avatar" aria-label="Initials SW">SW</div>
+          <h2>Shital Warang</h2>
+          <p>Java Full Stack Developer</p>
+          <div class="quickfacts">
+            <div class="fact"><strong>Java</strong><small>Backend</small></div>
+            <div class="fact"><strong>React.js</strong><small>Frontend</small></div>
+            <div class="fact"><strong>MySQL</strong><small>Database</small></div>
+            <div class="fact"><strong>REST APIs</strong><small>Integration</small></div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about">
+        <div class="section-head">
+          <div class="eyebrow">A little about me</div>
+          <h2 class="section-title">Building useful web experiences</h2>
+        </div>
+        <p class="section-desc">I have hands-on experience with web development and Java Full Stack technologies. My focus is on creating responsive interfaces, connecting them to backend services, and working with databases to support practical application features.</p>
+      </section>
+
+      <section id="skills">
+        <div class="section-head">
+          <div class="eyebrow">What I work with</div>
+          <h2 class="section-title">Technical Skills</h2>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <div class="skillgroup"><h3>Programming Languages</h3><div class="skillchips"><span>Java</span><span>SQL</span><span>JavaScript</span></div></div>
+            <div class="skillgroup"><h3>Frameworks & Technologies</h3><div class="skillchips"><span>Spring Boot</span><span>React.js</span><span>Bootstrap</span><span>RESTful APIs</span></div></div>
+            <div class="skillgroup"><h3>Web Technologies</h3><div class="skillchips"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div></div>
+          </div>
+          <div class="card">
+            <div class="skillgroup"><h3>Database & Tools</h3><div class="skillchips"><span>MySQL</span><span>Git</span><span>VS Code</span><span>Eclipse</span><span>XAMPP</span><span>Postman</span></div></div>
+            <div class="skillgroup"><h3>Data & Analytics</h3><div class="skillchips"><span>MS Excel</span><span>Power BI</span></div></div>
+            <div class="skillgroup"><h3>Soft Skills</h3><div class="skillchips"><span>Problem Solving</span><span>Quick Learner</span><span>Team Collaboration</span><span>Time Management</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-head">
+          <div class="eyebrow">Selected work</div>
+          <h2 class="section-title">Projects</h2>
+          <p class="section-desc">Projects listed below are based on the details in my resume. Live demos and repository links can be added when available.</p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <div class="project-top"><h3>SmartCart — Online Shopping System</h3><span class="project-number">01</span></div>
+            <p>A full-stack e-commerce application with separate Admin and User modules.</p>
+            <ul>
+              <li>Implemented REST APIs for products, cart, orders, and authentication.</li>
+              <li>Connected the application to MySQL with CRUD functionality.</li>
+              <li>Designed a responsive React.js frontend for a smooth user experience.</li>
+            </ul>
+            <div class="tags"><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">React.js</span><span class="tag">MySQL</span></div>
+          </article>
+          <article class="card">
+            <div class="project-top"><h3>TextUtils — Word & Character Converter</h3><span class="project-number">02</span></div>
+            <p>A responsive text utility web app built to make common text transformations easy.</p>
+            <ul>
+              <li>Word count and character count.</li>
+              <li>Convert text to uppercase or lowercase and remove extra spaces.</li>
+              <li>Copy-to-clipboard feature and dynamic Dark/Light mode toggle.</li>
+            </ul>
+            <div class="tags"><span class="tag">React.js</span><span class="tag">Bootstrap</span><span class="tag">JavaScript</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="education">
+        <div class="section-head">
+          <div class="eyebrow">Learning journey</div>
+          <h2 class="section-title">Education & Certifications</h2>
+        </div>
+        <div class="grid">
+          <div class="card timeline">
+            <div class="edu"><span class="dot"></span><div><h3>B.Sc. Information Technology</h3><p>Mumbai University · CGPA: 7.10</p><p>August 2022 – May 2025</p></div></div>
+            <div class="edu"><span class="dot"></span><div><h3>Higher Secondary Certificate (HSC)</h3><p>Maharashtra State Board · 54%</p><p>June 2020 – April 2022</p></div></div>
+            <div class="edu"><span class="dot"></span><div><h3>Secondary School Certificate (SSC)</h3><p>Maharashtra State Board · 82%</p><p>June 2019 – May 2020</p></div></div>
+          </div>
+          <div class="card">
+            <h3>Courses & Certifications</h3>
+            <ul>
+              <li>Master in Full Stack Java Developer — IT Vedant Institute</li>
+              <li>IBM Developer Skills Network: Java Fundamentals</li>
+              <li>IBM Developer Skills Network: SQL</li>
+              <li>IBM Developer Skills Network: Web Development</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="contact-panel">
+          <div>
+            <div class="eyebrow">Let's connect</div>
+            <h2 class="section-title">Have an opportunity in mind?</h2>
+            <p>Feel free to reach out about Java Full Stack Developer opportunities or collaboration.</p>
+          </div>
+          <div class="contact-links">
+            <a class="btn primary" href="mailto:warangshital48@gmail.com">Email Me</a>
+            <a class="btn secondary" href="https://github.com/shital-warang" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a class="btn secondary" href="https://www.linkedin.com/in/shital-warang-56279b352" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a class="btn secondary" href="tel:+919049502282">Call Me</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer><div class="wrap">© <span id="year">2026</span> Shital Warang · Java Full Stack Developer</div></footer>
+</body>
+</html>
